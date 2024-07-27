@@ -463,6 +463,7 @@ desc <- function(cmd = NULL, file = NULL, text = NULL, package = NULL) {
 #'
 #' @export
 #' @importFrom R6 R6Class
+#' @importFrom curl curl_download
 #' @docType class
 #' @format An R6 class.
 #'
