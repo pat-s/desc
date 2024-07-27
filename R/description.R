@@ -766,6 +766,12 @@ Encoding: UTF-8
 idesc_create_file <- function(self, private, file) {
   stopifnot(is_path(file))
 
+  if (grepl("https://", file)) {
+    tmp = tempfile()
+    curl::curl_download(file, tmp)
+    file = tmp
+  }
+
   if (file.exists(file) && is_dir(file)) file <- find_description(file)
   stopifnot(is_existing_file(file))
 
